@@ -9,11 +9,20 @@
 // `factorial(2)` to return `2`, and so on.
 //
 // Use only what you learned! No loops yet, so you'll have to use recursion!
-
+fn factorial_acc(n : u32, acc : u32) -> u32 {
+    if n == 0{
+        acc
+    } else{
+        factorial_acc(n-1, acc * n)
+    }
+}
+fn factorial(n : u32) -> u32 {
+    factorial_acc(n, 1)
+}
 #[cfg(test)]
 mod tests {
     use crate::factorial;
-
+    
     #[test]
     fn first() {
         assert_eq!(factorial(0), 1);
